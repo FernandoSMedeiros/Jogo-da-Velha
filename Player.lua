@@ -1,4 +1,4 @@
-local player = {caracter = ''}
+local player = {caracter = " "}
 
 function player:novo(caracter)
 	local player = {}
