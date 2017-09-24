@@ -26,6 +26,16 @@ function tabuleiro:acabou()
 	return true
 end
 
+function tabuleiro:vencedor()
+	for i=1,3 do
+		local linha = ((self[i][1] == self[i][2]) and (self[i][3] == self[i][1])) and (self[i][2] ~= " ")
+		if (linha) then
+			return true
+		end
+	end
+	return false
+end
+
 function tabuleiro:toString()
     
 	print(self[1][1] .. " | " .. self[1][2] .. " | " .. self[1][3])
@@ -36,6 +46,3 @@ function tabuleiro:toString()
 
 end
 
-tabuleiro:novo()
-tabuleiro:toString()
-print(tabuleiro:acabou())
