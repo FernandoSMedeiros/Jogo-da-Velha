@@ -16,8 +16,20 @@ end
 
 function jogo:vez()
 	if (self.player.simbolo == self.jogadorAtual.simbolo) then
-		self.jogadorAtual = self.jogador2
+		self.jogadorAtual = self.player2
 	else
-		self.jogadorAtual = self.jogador1
+		self.jogadorAtual = self.player1
+	end
+end
+
+function jogo:iniciar()
+	while 1 do
+
+		print("Vez de: " .. self.jogadorAtual.caracter)
+		print("Linha")
+		local linha = io.read("*number")
+		print("Coluna")
+		local coluna = io.read("*number")
+
 	end
 end
