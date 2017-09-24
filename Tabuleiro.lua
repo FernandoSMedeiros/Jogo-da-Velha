@@ -49,6 +49,19 @@ function tabuleiro:vencedor()
 
 end
 
+function tabuleiro:jogada(linha, coluna, player)
+
+	local jogadaValida = ((linha >= 1 and linha <= 3) and (coluna >= 1 and coluna <=3)) and (self[linha][coluna] == " ")
+
+	if (jogadaValida) then
+		self[linha][coluna] = player.caracter
+		return true
+	else
+		return false
+	end			
+
+end
+
 function tabuleiro:toString()
     
 	print(self[1][1] .. " | " .. self[1][2] .. " | " .. self[1][3])
