@@ -71,4 +71,3 @@ function tabuleiro:toString()
 	print(self[3][1] .. " | " .. self[3][2] .. " | " .. self[3][3])
 
 end
-
