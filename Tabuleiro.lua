@@ -32,7 +32,21 @@ function tabuleiro:vencedor()
 		local linha = ((self[i][1] == self[i][2]) and (self[i][3] == self[i][1])) and (self[i][2] ~= " ")
 		local coluna = ((self[1][i] == self[2][i]) and (self[3][i] == self[2][i])) and (self[2][i] ~= " ")
 		
-		if (linha or coluna) then
+		if (linha) then
+			
+			self[i][1] = "-"
+			self[i][2] = "-"
+			self[i][3] = "-"
+			
+			return true
+		end
+
+		if (coluna) then
+			
+			self[1][i] = " | "
+			self[2][i] = " | "
+			self[3][i] = " | "
+			
 			return true
 		end
 
@@ -41,7 +55,17 @@ function tabuleiro:vencedor()
 	local diagonal1 = ((self[1][1] == self[2][2]) and (self[3][3] == self[2][2])) and (self[2][2] ~= " ")
 	local diagonal2 = ((self[1][3] == self[2][2]) and (self[3][1] == self[2][2])) and (self[2][2] ~= " ")
 
-		if (diagonal1 or diagonal2) then
+		if (diagonal1) then
+			self[1][1] = "\\"
+			self[2][2] = "\\"
+			self[3][3] = "\\"
+			return true
+		end
+
+		if (diagonal2) then
+			self[1][3] = "/"
+			self[2][2] = "/"
+			self[3][1] = "/"
 			return true
 		end
 
