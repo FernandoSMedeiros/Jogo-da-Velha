@@ -79,9 +79,31 @@ end
 
 function testeJogadaValida()
   
+  local tabuleiro = tabuleiro:novo()
   
+  luaunit.assertEquals(tabuleiro:jogada(1 , 1, playerI), true)
   
+end
+
+function testeJogadaInvalidaPosicaoIncorreta()
+  
+  local tabuleiro = tabuleiro:novo()
+  
+  luaunit.assertEquals(tabuleiro:jogada(4 , 4, playerI), false)
+  
+end
+
+function testeJogadaInvalidaPosicaoJaOcupada()
+  
+  for i=1, 3 do
+    for j=1, 3 do
+      local tabuleiro = tabuleiro:novo()
+      tabuleiro:jogada(i, j, playerI)
+      luaunit.assertEquals(tabuleiro:jogada(i , j, playerI), false)
+    end
   end
+end
+
 
 function testeNaoAcabou()
   
