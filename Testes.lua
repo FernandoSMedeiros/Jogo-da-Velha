@@ -104,8 +104,42 @@ function testeAcabou()
   
 end
 
-function testeTracoLinha()
+function testeTracoLinha() 
   
+  local player = playerI 
+  for i=1,3 do
+    local tabuleiro = tabuleiro:novo()
+
+    tabuleiro:jogada(i, 1, player)
+    tabuleiro:jogada(i, 2, player)
+    tabuleiro:jogada(i, 3, player)
+    
+    tabuleiro:vencedor()
+    
+    luaunit.assertEquals( (tabuleiro[i][1] == "-") and (tabuleiro[i][2] == "-") and (tabuleiro[i][3] == "-"), true)
+    
   end
+
+end  
+  
+
+function testeTracoColuna() 
+  
+  local player = playerI 
+  
+  for i=1,3 do
+    local tabuleiro = tabuleiro:novo()
+
+    tabuleiro:jogada(1, i, player)
+    tabuleiro:jogada(2, i, player)
+    tabuleiro:jogada(3, i, player)
+    
+    tabuleiro:vencedor()
+    
+    luaunit.assertEquals( (tabuleiro[1][i] == " | ") and (tabuleiro[2][i] == " | ") and (tabuleiro[3][i] == " | "), true)
+    
+  end
+  
+end
 
 os.exit(luaunit.LuaUnit.run())
