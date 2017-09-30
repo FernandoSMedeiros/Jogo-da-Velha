@@ -16,9 +16,9 @@ function tabuleiro:vazio()
 end
 
 function tabuleiro:acabou()
-	for k,v in pairs(self) do
-		for i=1,3 do
-			if (self[k][i] == " ") then
+	for i=1,3 do 
+		for j=1,3 do
+			if (self[i][j] == " ") then
 				return false
 			end
 		end
